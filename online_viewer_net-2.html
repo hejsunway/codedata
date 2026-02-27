@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master Data Analytics with ITAI's professional certificate. Learn Excel, SQL, Python, Tableau, Power BI, and R through industry-aligned curriculum and real-world projects.">
+    <meta name="keywords" content="data analytics, professional certificate, Excel, SQL, Python, Tableau, Power BI, data science">
+    <meta name="author" content="ITAI Technology Education">
+    <meta property="og:title" content="ITAI | Professional Certificate in Data Analytics">
+    <meta property="og:description" content="Master Data Analytics with ITAI's professional certificate. Learn from industry leaders.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://itai.edu">
+    <meta property="og:image" content="https://itai.edu/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#2BB673">
+    <title>ITAI | Professional Certificate in Data Analytics</title>
+    <link rel="canonical" href="https://itai.edu">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.4);
+            --glass-border: rgba(255, 255, 255, 0.6);
+            --accent-green: #2BB673;
+            --soft-green: #7FD8BE;
+            --text-main: #0F2027;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 50%, #e0f2fe 100%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            margin: 0;
+        }
+
+        /* --- Focus Styles for Accessibility --- */
+        :focus-visible {
+            outline: 3px solid var(--accent-green);
+            outline-offset: 2px;
+        }
+
+        /* --- Skip Navigation --- */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-green);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 0 0 8px 8px;
+            z-index: 200;
+            font-weight: 700;
+            text-decoration: none;
+            transition: top 0.3s ease;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* --- Navigation --- */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        /* --- Glass Card --- */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.07);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                        background 0.4s ease,
+                        border-color 0.4s ease,
+                        box-shadow 0.4s ease;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .glass-card:hover {
+                transform: translateY(-10px) scale(1.01);
+                background: rgba(255, 255, 255, 0.6);
+                border-color: var(--accent-green);
+                box-shadow: 0 15px 45px rgba(43, 182, 115, 0.15);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .glass-card:hover {
+                background: rgba(255, 255, 255, 0.6);
+                border-color: var(--accent-green);
+                box-shadow: 0 15px 45px rgba(43, 182, 115, 0.15);
+            }
+        }
+
+        /* --- Buttons --- */
+        .btn-glass-solid {
+            background: var(--accent-green);
+            color: white;
+            box-shadow: 0 8px 20px rgba(43, 182, 115, 0.2);
+            transition: transform 0.3s ease, filter 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-glass-solid:hover {
+            transform: scale(1.05);
+            filter: brightness(1.05);
+        }
+
+        .btn-glass-outline {
+            background: white;
+            color: var(--text-main);
+            border: 1px solid var(--glass-border);
+            transition: background 0.3s ease, border-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-glass-outline:hover {
+            background: #f8fafc;
+            border-color: var(--accent-green);
+        }
+
+        /* --- Background Blobs --- */
+        .blob {
+            position: fixed;
+            z-index: -1;
+            filter: blur(80px);
+            border-radius: 50%;
+            opacity: 0.35;
+            pointer-events: none;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .blob {
+                animation: morph 20s ease-in-out infinite;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .blob {
+                filter: blur(60px);
+                opacity: 0.25;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .blob {
+                filter: blur(50px);
+                opacity: 0.2;
+            }
+        }
+
+        @keyframes morph {
+            0%, 100% {
+                border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+                transform: translate(30px, 60px) scale(1.05);
+            }
+            66% {
+                border-radius: 30% 60% 70% 40% / 50% 60% 30% 40%;
+                transform: translate(-30px, 30px) scale(0.95);
+            }
+        }
+
+        /* --- Grid Overlay --- */
+        .grid-overlay {
+            background-image: radial-gradient(circle, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            background-attachment: fixed;
+        }
+
+        @media (max-width: 768px) {
+            .grid-overlay { background-size: 40px 40px; }
+        }
+
+        @media (max-width: 640px) {
+            .grid-overlay { background-size: 50px 50px; opacity: 0.8; }
+        }
+
+        /* --- Hero Title --- */
+        .hero-title {
+            background: linear-gradient(to right, #0F2027 0%, #2BB673 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- Salary Bar --- */
+        .salary-bar {
+            height: 8px;
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .salary-fill {
+            height: 100%;
+            background: var(--accent-green);
+            width: 0;
+            border-radius: 4px;
+            transition: width 2s ease-out;
+        }
+
+        /* --- Module Row --- */
+        .module-row {
+            transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .module-row:hover {
+                border-color: var(--accent-green);
+                background: rgba(255, 255, 255, 0.9);
+                transform: translateX(10px);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .module-row:hover {
+                border-color: var(--accent-green);
+                background: rgba(255, 255, 255, 0.9);
+            }
+        }
+
+        /* --- Nav Link --- */
+        .nav-link {
+            position: relative;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-green);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link[aria-current="true"]::after {
+            width: 100%;
+        }
+
+        .nav-link[aria-current="true"] {
+            color: var(--accent-green);
+        }
+
+        /* --- Progress Bar --- */
+        .progress-bar {
+            height: 6px;
+            background: rgba(0, 0, 0, 0.08);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-green), #A8E6CF);
+            border-radius: 3px;
+            transition: width 2s ease-out;
+        }
+
+        /* --- Stats --- */
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent-green), #A8E6CF);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- FAQ --- */
+        .faq-item {
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.3s ease;
+        }
+
+        .faq-item[aria-expanded="true"] .faq-answer {
+            max-height: 500px;
+            opacity: 1;
+            margin-top: 12px;
+        }
+
+        .faq-icon {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item[aria-expanded="true"] .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* --- Chart Bars --- */
+        .chart-bar {
+            display: flex;
+            align-items: flex-end;
+            gap: 3px;
+            height: 150px;
+            margin: 20px 0;
+        }
+
+        .bar-item {
+            flex: 1;
+            background: linear-gradient(180deg, var(--accent-green), #A8E6CF);
+            border-radius: 6px 6px 0 0;
+            position: relative;
+            min-height: 20px;
+            transition: filter 0.3s ease, transform 0.3s ease;
+        }
+
+        .bar-item:hover {
+            filter: brightness(1.1);
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .bar-item:hover {
+                transform: translateY(-5px);
+            }
+        }
+
+        .bar-label {
+            position: absolute;
+            bottom: -25px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--text-main);
+        }
+
+        .bar-value {
+            position: absolute;
+            top: -25px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-weight: bold;
+            color: var(--accent-green);
+            font-size: 14px;
+        }
+
+        /* --- Section Gradients --- */
+        .section-gradient-1 {
+            background: linear-gradient(135deg, rgba(43, 182, 115, 0.06) 0%, rgba(168, 230, 207, 0.06) 100%);
+        }
+
+        .section-gradient-2 {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.06) 0%, rgba(168, 230, 207, 0.06) 100%);
+        }
+
+        .section-gradient-3 {
+            background: linear-gradient(135deg, rgba(244, 63, 94, 0.06) 0%, rgba(255, 193, 7, 0.06) 100%);
+        }
+
+        /* --- Badges --- */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-green {
+            background: rgba(43, 182, 115, 0.15);
+            color: var(--accent-green);
+            border: 1px solid var(--accent-green);
+        }
+
+        .badge-blue {
+            background: rgba(59, 130, 246, 0.15);
+            color: #3B82F6;
+            border: 1px solid #3B82F6;
+        }
+
+        .badge-purple {
+            background: rgba(168, 85, 247, 0.15);
+            color: #A855F7;
+            border: 1px solid #A855F7;
+        }
+
+        /* --- Icon Box --- */
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            background: linear-gradient(135deg, rgba(43, 182, 115, 0.2), rgba(168, 230, 207, 0.2));
+            border: 1px solid rgba(43, 182, 115, 0.3);
+        }
+
+        /* --- Feature Box --- */
+        .feature-box {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-green), #A8E6CF, transparent);
+        }
+
+        /* --- Stat Badges --- */
+        .stat-badge {
+            position: relative;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .stat-badge-green {
+            background: linear-gradient(135deg, rgba(43, 182, 115, 0.15), rgba(168, 230, 207, 0.1));
+            border: 2px solid var(--accent-green);
+        }
+
+        .stat-badge-blue {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(168, 230, 207, 0.1));
+            border: 2px solid #3B82F6;
+        }
+
+        .stat-badge-purple {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(168, 230, 207, 0.1));
+            border: 2px solid #A855F7;
+        }
+
+        /* --- Divider --- */
+        .divider-gradient {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-green), transparent);
+            margin: 2rem 0;
+        }
+
+        /* --- Ribbon --- */
+        .ribbon {
+            position: absolute;
+            top: 15px;
+            right: -35px;
+            padding: 8px 40px;
+            background: linear-gradient(135deg, var(--accent-green), #A8E6CF);
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            transform: rotate(45deg);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            pointer-events: none;
+        }
+
+        /* --- Glow (respects reduced motion) --- */
+        @media (prefers-reduced-motion: no-preference) {
+            .glow-effect {
+                animation: glow 2s ease-in-out infinite;
+            }
+
+            .pulse-dot {
+                animation: pulse 2s infinite;
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(43, 182, 115, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(43, 182, 115, 0.6); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* --- Mobile Menu --- */
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 16px 24px;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .mobile-nav[aria-hidden="false"] {
+            display: flex;
+        }
+
+        .mobile-nav a {
+            padding: 8px 0;
+            font-weight: 600;
+            color: var(--text-main);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav a:hover {
+            color: var(--accent-green);
+        }
+
+        /* --- Timeline --- */
+        .timeline-item {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 24px;
+            height: 24px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--accent-green);
+        }
+
+        /* --- Intersection Observer Animation --- */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .animate-on-scroll {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
+    </style>
+
+    <!-- Schema Markup for Course -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Professional Certificate in Data Analytics",
+      "description": "A comprehensive data analytics program covering Excel, SQL, Python, Tableau, Power BI, and R",
+      "provider": {
+        "@type": "Organization",
+        "name": "ITAI Technology Education",
+        "sameAs": "https://itai.edu"
+      },
+      "numberOfCredits": 6,
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "name": "March 2024 Cohort",
+        "courseMode": "Online",
+        "courseWorkload": "PT10H/W"
+      }
+    }
+    </script>
+</head>
+<body class="grid-overlay">
+
+    <!-- Background Blobs -->
+    <div class="blob w-80 h-80 sm:w-96 sm:h-96 md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] bg-emerald-200 top-[-50px] sm:top-[-75px] md:top-[-100px] left-[-50px] sm:left-[-75px] md:left-[-100px]" aria-hidden="true"></div>
+    <div class="blob w-64 h-64 sm:w-80 sm:h-80 md:w-[400px] md:h-[400px] bg-sky-200 bottom-[5%] sm:bottom-[8%] md:bottom-[10%] right-[-40px] sm:right-[-60px] md:right-[-50px]" style="animation-delay: -5s;" aria-hidden="true"></div>
+
+    <!-- Skip Navigation Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav class="glass-nav sticky top-0 z-[100] px-6 py-4" aria-label="Primary navigation">
+        <div class="max-w-7xl mx-auto flex justify-between items-center relative">
+            <a href="/" class="flex items-center gap-3" aria-label="ITAI.EDU - Home">
+                <div class="w-10 h-10 bg-[#2BB673] rounded-xl flex items-center justify-center text-white shadow-lg" aria-hidden="true">
+                    <i class="fas fa-chart-pie text-lg"></i>
+                </div>
+                <span class="text-xl font-extrabold tracking-tight text-slate-900">ITAI<span class="text-[#2BB673]">.EDU</span></span>
+            </a>
+
+            <div class="hidden md:flex gap-8 text-sm font-bold text-slate-600" role="list">
+                <a href="#curriculum" class="nav-link hover:text-[#2BB673]" role="listitem">Curriculum</a>
+                <a href="#modules" class="nav-link hover:text-[#2BB673]" role="listitem">Modules</a>
+                <a href="#outcomes" class="nav-link hover:text-[#2BB673]" role="listitem">Outcomes</a>
+                <a href="#faq" class="nav-link hover:text-[#2BB673]" role="listitem">FAQ</a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button
+                class="md:hidden w-10 h-10 rounded-lg bg-[#2BB673] text-white flex items-center justify-center border-none cursor-pointer"
+                aria-expanded="false"
+                aria-controls="mobile-menu"
+                aria-label="Toggle navigation menu"
+                id="mobile-menu-btn"
+            >
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Mobile Menu -->
+            <div class="mobile-nav md:hidden" id="mobile-menu" aria-hidden="true" role="menu">
+                <a href="#curriculum" role="menuitem">Curriculum</a>
+                <a href="#modules" role="menuitem">Modules</a>
+                <a href="#outcomes" role="menuitem">Outcomes</a>
+                <a href="#faq" role="menuitem">FAQ</a>
+            </div>
+
+            <div class="hidden md:block">
+                <a href="#enroll" class="btn-glass-solid px-6 py-2.5 rounded-xl text-sm font-bold inline-block no-underline">Enroll Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+
+        <!-- 1. HERO SECTION -->
+        <header class="relative max-w-7xl mx-auto px-6 pt-20 pb-32 grid lg:grid-cols-2 gap-16 items-center" role="banner">
+            <div class="space-y-8">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 glass-card text-emerald-700 text-xs font-bold border-emerald-200 bg-emerald-50/50">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 pulse-dot" aria-hidden="true"></span>
+                    Professional Certificate Enrollment Open
+                </div>
+                <h1 class="text-5xl sm:text-6xl lg:text-8xl font-black hero-title leading-[1.1]">
+                    Master Data <br>Analytics.
+                </h1>
+                <p class="text-lg sm:text-xl text-slate-600 max-w-lg leading-relaxed">
+                    A job-ready, industry-aligned program covering <strong>Excel, SQL, Python, Tableau, Power BI, and R</strong>. Translucent learning for a transparent career path.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#enroll" class="btn-glass-solid px-10 py-4 rounded-2xl font-extrabold text-lg flex items-center gap-3 no-underline">
+                        Start Learning <i class="fas fa-arrow-right text-sm" aria-hidden="true"></i>
+                    </a>
+                    <button class="btn-glass-outline px-10 py-4 rounded-2xl font-extrabold text-lg shadow-sm" type="button">
+                        Download Curriculum
+                    </button>
+                </div>
+                <!-- Hero Stats Panel -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-8">
+                    <div class="glass-card p-4 text-center">
+                        <p class="text-[10px] uppercase tracking-widest text-slate-400 mb-1">Students</p>
+                        <p class="text-xl font-bold text-slate-800">+4,000</p>
+                    </div>
+                    <div class="glass-card p-4 text-center">
+                        <p class="text-[10px] uppercase tracking-widest text-slate-400 mb-1">Success Rate</p>
+                        <p class="text-xl font-bold text-slate-800">94%</p>
+                    </div>
+                    <div class="glass-card p-4 text-center">
+                        <p class="text-[10px] uppercase tracking-widest text-slate-400 mb-1">Level</p>
+                        <p class="text-xl font-bold text-slate-800">Pro</p>
+                    </div>
+                    <div class="glass-card p-4 text-center">
+                        <p class="text-[10px] uppercase tracking-widest text-slate-400 mb-1">Capstones</p>
+                        <p class="text-xl font-bold text-slate-800">3</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative flex justify-center items-center">
+                <div class="relative w-80 h-80 lg:w-[450px] lg:h-[450px]">
+                    <div class="blob w-full h-full bg-gradient-to-br from-[#A8E6CF] to-[#2BB673] opacity-30" aria-hidden="true"></div>
+                    <div class="absolute inset-0 glass-card m-10 border-white flex items-center justify-center overflow-hidden bg-white/40">
+                        <img
+                            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600"
+                            class="opacity-80 object-cover h-full w-full"
+                            alt="Data analytics dashboard displaying colorful metrics and charts on a monitor"
+                            loading="lazy"
+                            width="600"
+                            height="600"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-emerald-50/50 to-transparent" aria-hidden="true"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- 2. TRUST SECTION -->
+        <section class="max-w-7xl mx-auto px-6 py-12" aria-labelledby="trust-heading">
+            <div class="glass-card py-8 px-12 flex flex-col md:flex-row items-center justify-between gap-8 border-slate-100">
+                <h2 id="trust-heading" class="text-xs font-bold uppercase tracking-widest text-slate-400 m-0">Trusted by aspiring analysts worldwide</h2>
+                <div class="flex flex-wrap justify-center gap-12 text-slate-300" aria-label="Partner companies">
+                    <i class="fab fa-google text-2xl hover:text-slate-500 transition-colors" aria-hidden="true" title="Google"></i>
+                    <i class="fab fa-amazon text-2xl hover:text-slate-500 transition-colors" aria-hidden="true" title="Amazon"></i>
+                    <i class="fab fa-microsoft text-2xl hover:text-slate-500 transition-colors" aria-hidden="true" title="Microsoft"></i>
+                    <i class="fab fa-linkedin text-2xl hover:text-slate-500 transition-colors" aria-hidden="true" title="LinkedIn"></i>
+                    <i class="fab fa-meta text-2xl hover:text-slate-500 transition-colors" aria-hidden="true" title="Meta"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. PROGRAM OVERVIEW -->
+        <section class="max-w-7xl mx-auto px-6 py-24 section-gradient-1" aria-labelledby="overview-heading">
+            <div class="text-center mb-16 space-y-4">
+                <h2 id="overview-heading" class="text-3xl sm:text-4xl font-black text-slate-900">Professional Certificate in Data Analytics</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto">Complete 6 intensive modules, solve 3 real-world capstone projects, and graduate with a globally recognized credential.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <article class="glass-card p-8 space-y-4 border-l-4 border-l-[#2BB673] bg-white/60 feature-box glow-effect">
+                    <div class="text-3xl" aria-hidden="true">🎓</div>
+                    <h3 class="text-lg font-bold text-slate-800">Industry-Aligned Curriculum</h3>
+                    <p class="text-sm text-slate-500">Built in collaboration with top-tier data leads from FAANG companies.</p>
+                    <div class="pt-2"><span class="badge badge-green"><i class="fas fa-check-circle" aria-hidden="true"></i> Verified</span></div>
+                </article>
+                <article class="glass-card p-8 space-y-4 border-l-4 border-l-[#3B82F6] bg-white/60 feature-box">
+                    <div class="text-3xl" aria-hidden="true">📊</div>
+                    <h3 class="text-lg font-bold text-slate-800">Real Business Case Studies</h3>
+                    <p class="text-sm text-slate-500">Analyze actual datasets from retail, finance, and tech sectors.</p>
+                    <div class="pt-2"><span class="badge badge-blue"><i class="fas fa-star" aria-hidden="true"></i> Featured</span></div>
+                </article>
+                <article class="glass-card p-8 space-y-4 border-l-4 border-l-[#A855F7] bg-white/60 feature-box">
+                    <div class="text-3xl" aria-hidden="true">💻</div>
+                    <h3 class="text-lg font-bold text-slate-800">Hands-On Projects</h3>
+                    <p class="text-sm text-slate-500">Learn by doing. Write code and build dashboards from day one.</p>
+                    <div class="pt-2"><span class="badge badge-purple"><i class="fas fa-fire" aria-hidden="true"></i> Trending</span></div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 4. CURRICULUM OVERVIEW (TOOLS) -->
+        <section id="curriculum" class="max-w-7xl mx-auto px-6 py-24 section-gradient-2" aria-labelledby="curriculum-heading">
+            <div class="text-center mb-16">
+                <div class="inline-block mb-4"><span class="badge badge-blue"><i class="fas fa-cubes" aria-hidden="true"></i> Tech Stack</span></div>
+                <h2 id="curriculum-heading" class="text-3xl font-black text-slate-900">The Core Tools You'll Master</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" role="list">
+                <article class="glass-card p-10 bg-white/40 feature-box" role="listitem">
+                    <div class="icon-box mb-6" aria-hidden="true"><i class="fas fa-file-excel text-green-600"></i></div>
+                    <h3 class="text-xl font-bold mb-4 text-slate-800">Microsoft Excel</h3>
+                    <p class="text-sm text-slate-600">Advanced formulas, pivot tables, dashboards, and automation.</p>
+                    <div class="pt-3 mt-3 border-t border-slate-200"><span class="text-[10px] text-slate-500">⚡ Beginner to Advanced</span></div>
+                </article>
+                <article class="glass-card p-10 bg-white/40 feature-box" role="listitem">
+                    <div class="icon-box mb-6 bg-gradient-to-br from-blue-200 to-cyan-200" aria-hidden="true"><i class="fas fa-database text-blue-600"></i></div>
+                    <h3 class="text-xl font-bold mb-4 text-slate-800">SQL</h3>
+                    <p class="text-sm text-slate-600">Querying, joins, aggregations, and optimization for reporting.</p>
+                    <div class="pt-3 mt-3 border-t border-slate-200"><span class="text-[10px] text-slate-500">⚡ Intermediate to Expert</span></div>
+                </article>
+                <article class="glass-card p-10 bg-white/40 feature-box" role="listitem">
+                    <div class="icon-box mb-6 bg-gradient-to-br from-yellow-200 to-orange-200" aria-hidden="true"><i class="fab fa-python text-yellow-600"></i></div>
+                    <h3 class="text-xl font-bold mb-4 text-slate-800">Python</h3>
+                    <p class="text-sm text-slate-600">Pandas, Matplotlib, and automated data pipelines.</p>
+                    <div class="pt-3 mt-3 border-t border-slate-200"><span class="text-[10px] text-slate-500">⚡ Intermediate to Advanced</span></div>
+                </article>
+                <article class="glass-card p-10 bg-white/40 feature-box" role="listitem">
+                    <div class="icon-box mb-6 bg-gradient-to-br from-sky-200 to-cyan-200" aria-hidden="true"><i class="fas fa-chart-pie text-sky-600"></i></div>
+                    <h3 class="text-xl font-bold mb-4 text-slate-800">Tableau</h3>
+                    <p class="text-sm text-slate-600">Interactive dashboards and storytelling with complex data.</p>
+                    <div class="pt-3 mt-3 border-t border-slate-200"><span class="text-[10px] text-slate-500">⚡ Beginner to Advanced</span></div>
+                </article>
+                <article class="glass-card p-10 bg-white/40 feature-box" role="listitem">
+                    <div class="icon-box mb-6 bg-gradient-to-br from-amber-200 to-orange-200" aria-hidden="true"><i class="fas fa-bolt text-amber-500"></i></div>
+                    <h3 class="text-xl font-bold mb-4 text-slate-800">Power BI</h3>
+                    <p class="text-sm text-slate-600">Enterprise reporting, DAX, and dynamic visualizations.</p>
+                    <div class="pt-3 mt-3 border-t border-slate-200"><span class="text-[10px] text-slate-500">⚡ Intermediate to Expert</span></div>
+                </article>
+                <article class="glass-card p-10 bg-white/40 feature-box" role="listitem">
+                    <div class="icon-box mb-6 bg-gradient-to-br from-purple-200 to-indigo-200" aria-hidden="true"><i class="fas fa-microscope text-indigo-600"></i></div>
+                    <h3 class="text-xl font-bold mb-4 text-slate-800">R Statistics</h3>
+                    <p class="text-sm text-slate-600">Statistical modeling and predictive analysis.</p>
+                    <div class="pt-3 mt-3 border-t border-slate-200"><span class="text-[10px] text-slate-500">⚡ Advanced</span></div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 5. LEARNING OUTCOMES -->
+        <section class="max-w-7xl mx-auto px-6 py-24 section-gradient-3" aria-labelledby="outcomes-learn-heading">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <h2 id="outcomes-learn-heading" class="text-3xl sm:text-4xl font-black text-slate-900">What You'll Achieve</h2>
+                    <ul class="space-y-4 list-none p-0 m-0">
+                        <li class="flex gap-4 items-start">
+                            <div class="w-10 h-10 glass-card flex items-center justify-center text-[#2BB673] bg-white flex-shrink-0 mt-1" aria-hidden="true"><i class="fas fa-check"></i></div>
+                            <div>
+                                <h3 class="font-bold text-slate-800 text-base">Build Real Dashboards</h3>
+                                <p class="text-slate-600 text-sm">Create interactive visualizations using Tableau and Power BI that drive business decisions</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4 items-start">
+                            <div class="w-10 h-10 glass-card flex items-center justify-center text-[#2BB673] bg-white flex-shrink-0 mt-1" aria-hidden="true"><i class="fas fa-check"></i></div>
+                            <div>
+                                <h3 class="font-bold text-slate-800 text-base">Write Production SQL</h3>
+                                <p class="text-slate-600 text-sm">Master complex queries and database optimization techniques used by top companies</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4 items-start">
+                            <div class="w-10 h-10 glass-card flex items-center justify-center text-[#2BB673] bg-white flex-shrink-0 mt-1" aria-hidden="true"><i class="fas fa-check"></i></div>
+                            <div>
+                                <h3 class="font-bold text-slate-800 text-base">Automate with Python</h3>
+                                <p class="text-slate-600 text-sm">Build data pipelines and automation scripts that save hours of manual work</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4 items-start">
+                            <div class="w-10 h-10 glass-card flex items-center justify-center text-[#2BB673] bg-white flex-shrink-0 mt-1" aria-hidden="true"><i class="fas fa-check"></i></div>
+                            <div>
+                                <h3 class="font-bold text-slate-800 text-base">Present with Impact</h3>
+                                <p class="text-slate-600 text-sm">Learn storytelling techniques to communicate insights that influence executive decisions</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="relative">
+                    <div class="glass-card p-8 space-y-6 bg-white/60" role="group" aria-label="Skills proficiency levels after completion">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="font-bold text-slate-700">Data Analysis Skills</span>
+                                <span class="text-[#2BB673] font-bold">95%</span>
+                            </div>
+                            <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" aria-label="Data Analysis Skills: 95%">
+                                <div class="progress-fill" style="width: 95%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="font-bold text-slate-700">Visualization Mastery</span>
+                                <span class="text-[#2BB673] font-bold">92%</span>
+                            </div>
+                            <div class="progress-bar" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100" aria-label="Visualization Mastery: 92%">
+                                <div class="progress-fill" style="width: 92%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="font-bold text-slate-700">SQL Proficiency</span>
+                                <span class="text-[#2BB673] font-bold">88%</span>
+                            </div>
+                            <div class="progress-bar" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" aria-label="SQL Proficiency: 88%">
+                                <div class="progress-fill" style="width: 88%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="font-bold text-slate-700">Programming Ability</span>
+                                <span class="text-[#2BB673] font-bold">85%</span>
+                            </div>
+                            <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="Programming Ability: 85%">
+                                <div class="progress-fill" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. INDUSTRY DEMAND -->
+        <section class="max-w-7xl mx-auto px-6 py-24 section-gradient-2" aria-labelledby="demand-heading">
+            <div class="space-y-12">
+                <div class="text-center space-y-4">
+                    <h2 id="demand-heading" class="text-3xl sm:text-4xl font-black text-slate-900">Why Data Analytics?</h2>
+                    <p class="text-slate-600 max-w-2xl mx-auto">The demand for data analysts continues to surge across all industries</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="stat-badge stat-badge-green glass-card p-8 text-center space-y-4 bg-white/60">
+                        <p class="text-[#2BB673] text-sm font-bold uppercase tracking-wider">📈 Job Growth</p>
+                        <p class="stat-number" aria-label="36 percent">36%</p>
+                        <p class="text-slate-600 text-sm">Expected growth in data analyst roles through 2032</p>
+                    </div>
+                    <div class="stat-badge stat-badge-blue glass-card p-8 text-center space-y-4 bg-white/60">
+                        <p class="text-[#3B82F6] text-sm font-bold uppercase tracking-wider">💰 Average Salary</p>
+                        <p class="stat-number" aria-label="65 thousand pounds plus">£65K+</p>
+                        <p class="text-slate-600 text-sm">Mid-level data analysts in UK/Europe</p>
+                    </div>
+                    <div class="stat-badge stat-badge-purple glass-card p-8 text-center space-y-4 bg-white/60">
+                        <p class="text-[#A855F7] text-sm font-bold uppercase tracking-wider">🎯 Job Openings</p>
+                        <p class="stat-number" aria-label="280 thousand plus">280K+</p>
+                        <p class="text-slate-600 text-sm">Active postings globally (LinkedIn)</p>
+                    </div>
+                </div>
+                <div class="glass-card p-12 bg-white/60">
+                    <h3 class="text-xl font-bold mb-8 text-slate-800">Top Hiring Industries</h3>
+                    <div class="chart-bar" role="img" aria-label="Bar chart showing top hiring industries: Tech 42K, Finance 35K, Retail 31K, Healthcare 28K, Consulting 25K">
+                        <div class="bar-item" style="height: 85%;">
+                            <span class="bar-value" aria-hidden="true">42K</span>
+                            <span class="bar-label" aria-hidden="true">Tech</span>
+                        </div>
+                        <div class="bar-item" style="height: 72%;">
+                            <span class="bar-value" aria-hidden="true">35K</span>
+                            <span class="bar-label" aria-hidden="true">Finance</span>
+                        </div>
+                        <div class="bar-item" style="height: 65%;">
+                            <span class="bar-value" aria-hidden="true">31K</span>
+                            <span class="bar-label" aria-hidden="true">Retail</span>
+                        </div>
+                        <div class="bar-item" style="height: 58%;">
+                            <span class="bar-value" aria-hidden="true">28K</span>
+                            <span class="bar-label" aria-hidden="true">Healthcare</span>
+                        </div>
+                        <div class="bar-item" style="height: 52%;">
+                            <span class="bar-value" aria-hidden="true">25K</span>
+                            <span class="bar-label" aria-hidden="true">Consulting</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. COURSE TIMELINE -->
+        <section class="max-w-7xl mx-auto px-6 py-24 section-gradient-1" aria-labelledby="timeline-heading">
+            <div class="text-center mb-16 space-y-4">
+                <h2 id="timeline-heading" class="text-3xl sm:text-4xl font-black text-slate-900">Your Learning Journey</h2>
+                <p class="text-slate-600">Complete the program at your own pace, typically 4–6 months</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <article class="glass-card p-6 bg-white/60 feature-box relative">
+                    <div class="absolute top-0 right-0 w-1 h-full bg-gradient-to-b from-green-500 to-transparent rounded-l" aria-hidden="true"></div>
+                    <p class="text-[#2BB673] font-bold text-sm">📚 Weeks 1–2</p>
+                    <h3 class="font-bold text-slate-800 mt-2 mb-2">Foundations</h3>
+                    <p class="text-xs text-slate-600">Data concepts, Excel basics, environment setup</p>
+                    <div class="mt-4 pt-3 border-t border-slate-200"><span class="badge badge-green text-[10px]">Beginner</span></div>
+                </article>
+                <article class="glass-card p-6 bg-white/60 feature-box relative">
+                    <div class="absolute top-0 right-0 w-1 h-full bg-gradient-to-b from-blue-500 to-transparent rounded-l" aria-hidden="true"></div>
+                    <p class="text-blue-600 font-bold text-sm">💻 Weeks 3–6</p>
+                    <h3 class="font-bold text-slate-800 mt-2 mb-2">Core Tools</h3>
+                    <p class="text-xs text-slate-600">SQL mastery, Python programming, first projects</p>
+                    <div class="mt-4 pt-3 border-t border-slate-200"><span class="badge badge-blue text-[10px]">Intermediate</span></div>
+                </article>
+                <article class="glass-card p-6 bg-white/60 feature-box relative">
+                    <div class="absolute top-0 right-0 w-1 h-full bg-gradient-to-b from-purple-500 to-transparent rounded-l" aria-hidden="true"></div>
+                    <p class="text-purple-600 font-bold text-sm">📊 Weeks 7–14</p>
+                    <h3 class="font-bold text-slate-800 mt-2 mb-2">Visualization</h3>
+                    <p class="text-xs text-slate-600">Tableau, Power BI, dashboard building</p>
+                    <div class="mt-4 pt-3 border-t border-slate-200"><span class="badge badge-purple text-[10px]">Advanced</span></div>
+                </article>
+                <article class="glass-card p-6 bg-white/60 feature-box relative">
+                    <div class="absolute top-0 right-0 w-1 h-full bg-gradient-to-b from-red-500 to-transparent rounded-l" style="opacity: 0.6;" aria-hidden="true"></div>
+                    <p class="text-red-600 font-bold text-sm">🏆 Weeks 15–20</p>
+                    <h3 class="font-bold text-slate-800 mt-2 mb-2">Capstone</h3>
+                    <p class="text-xs text-slate-600">Real-world project, mentorship, certification</p>
+                    <div class="mt-4 pt-3 border-t border-slate-200"><span class="badge" style="background: rgba(244, 63, 94, 0.15); color: #F03F5E; border: 1px solid #F03F5E;">Expert</span></div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 8. TESTIMONIALS -->
+        <section class="max-w-7xl mx-auto px-6 py-24 section-gradient-2" aria-labelledby="testimonials-heading">
+            <div class="text-center mb-16 space-y-4">
+                <h2 id="testimonials-heading" class="text-3xl sm:text-4xl font-black text-slate-900">Success Stories</h2>
+                <p class="text-slate-600">Hear from students who transformed their careers</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <blockquote class="glass-card p-8 bg-white/60 space-y-4 feature-box glow-effect relative m-0">
+                    <div class="ribbon" aria-hidden="true">⭐ TOP</div>
+                    <div class="flex gap-1" role="img" aria-label="5 out of 5 stars">
+                        <i class="fas fa-star text-amber-400" aria-hidden="true"></i>
+                        <i class="fas fa-star text-amber-400" aria-hidden="true"></i>
+                        <i class="fas fa-star text-amber-400" aria-hidden="true"></i>
+                        <i class="fas fa-star text-amber-400" aria-hidden="true"></i>
+                        <i class="fas fa-star text-amber-400" aria-hidden="true"></i>
+                    </div>
+                    <p class="text-slate-700 italic">"The course structure was perfect. I went from zero data skills to landing a Data Analyst role within 3 months. The capstone project demo was crucial in my interviews."</p>
+                    <footer class="border-t border-slate-200 pt-4">
+                        <cite class="not-italic">
+                            <p class="font-bold text-slate-800">Sarah Mitchell</p>
+                            <p class="text-xs text-slate-600">📍 Data Analyst at Google</p>
+                        </cite>
+                    </footer>
+                </blockquote>
+                <blockquote class="glass-card p-8 bg-white/60 space-y-4 feature-box glow-effect relative m-0">
+                    <div class="ribbon" style="background: linear-gradient(135deg, #3B82F6, #60A5FA); top: 25px;" aria-hidden="true">💡 NEW</div>
+                    <div class="flex gap-1" role="img" aria-label="5 out of 5 stars">
+                        <i class="fas fa-star text-amber-400" aria-hidden="true"></i>
+                        <i class="fas fa-star text-amber-400" aria-hidden="true"></i>
+                        <i class="fas fa-star text-amber-400" aria-hidden="true"></i>
+                        <i class="fas fa-star text-amber-400" aria-hidden="true"></i>
+                        <i class="fas fa-star text-amber-400" aria-hidden="true"></i>
+                    </div>
+                    <p class="text-slate-700 italic">"I appreciated the hands-on approach. Every module had real-world datasets, which made learning practical and immediately applicable. Highly recommend!"</p>
+                    <footer class="border-t border-slate-200 pt-4">
+                        <cite class="not-italic">
+                            <p class="font-bold text-slate-800">James Chen</p>
+                            <p class="text-xs text-slate-600">📍 BI Analyst at McKinsey</p>
+                        </cite>
+                    </footer>
+                </blockquote>
+                <blockquote class="glass-card p-8 bg-white/60 space-y-4 feature-box glow-effect relative m-0">
+                    <div class="ribbon" style="background: linear-gradient(135deg, #A855F7, #D946EF); top: 35px;" aria-hidden="true">⚡ HOT</div>
+                    <div class="flex gap-1" role="img" aria-label="5 out of 5 stars">
+                        <i class="fas fa-star text-amber-400" aria-hidden="true"></i>
+                        <i class="fas fa-star text-amber-400" aria-hidden="true"></i>
+                        <i class="fas fa-star text-amber-400" aria-hidden="true"></i>
+                        <i class="fas fa-star text-amber-400" aria-hidden="true"></i>
+                        <i class="fas fa-star text-amber-400" aria-hidden="true"></i>
+                    </div>
+                    <p class="text-slate-700 italic">"As someone from a non-technical background, I was nervous. The instructors broke down complex concepts beautifully. I'm now confidently analyzing data daily."</p>
+                    <footer class="border-t border-slate-200 pt-4">
+                        <cite class="not-italic">
+                            <p class="font-bold text-slate-800">Emma Rodriguez</p>
+                            <p class="text-xs text-slate-600">📍 Senior Analyst at Amazon</p>
+                        </cite>
+                    </footer>
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- 9. FAQ -->
+        <section id="faq" class="max-w-4xl mx-auto px-6 py-24 section-gradient-3" aria-labelledby="faq-heading">
+            <div class="text-center mb-16 space-y-4">
+                <h2 id="faq-heading" class="text-3xl sm:text-4xl font-black text-slate-900">Common Questions</h2>
+                <p class="text-slate-600">Everything you need to know about the program</p>
+            </div>
+            <div class="space-y-4" id="faq-container" role="list">
+                <div class="faq-item glass-card p-8 bg-white/60" role="listitem" aria-expanded="false" tabindex="0">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-bold text-slate-800 text-base">Do I need prior experience with data or coding?</h3>
+                        <i class="faq-icon fas fa-chevron-down text-[#2BB673]" aria-hidden="true"></i>
+                    </div>
+                    <div class="faq-answer text-slate-600 text-sm" role="region">
+                        <p>No! We start from absolute basics. Our program is designed for complete beginners. We progressively build up your skills from foundational concepts to advanced techniques.</p>
+                    </div>
+                </div>
+                <div class="faq-item glass-card p-8 bg-white/60" role="listitem" aria-expanded="false" tabindex="0">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-bold text-slate-800 text-base">What's the time commitment required?</h3>
+                        <i class="faq-icon fas fa-chevron-down text-[#2BB673]" aria-hidden="true"></i>
+                    </div>
+                    <div class="faq-answer text-slate-600 text-sm" role="region">
+                        <p>Typically 10–15 hours per week for 4–6 months. You can customize your pace based on your schedule. We offer flexible learning with recorded sessions and live office hours.</p>
+                    </div>
+                </div>
+                <div class="faq-item glass-card p-8 bg-white/60" role="listitem" aria-expanded="false" tabindex="0">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-bold text-slate-800 text-base">Will I get a certification?</h3>
+                        <i class="faq-icon fas fa-chevron-down text-[#2BB673]" aria-hidden="true"></i>
+                    </div>
+                    <div class="faq-answer text-slate-600 text-sm" role="region">
+                        <p>Yes! You'll receive a Professional Certificate upon completion, recognized by leading tech companies. You'll also build a portfolio of real projects to showcase to employers.</p>
+                    </div>
+                </div>
+                <div class="faq-item glass-card p-8 bg-white/60" role="listitem" aria-expanded="false" tabindex="0">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-bold text-slate-800 text-base">What's the money-back guarantee?</h3>
+                        <i class="faq-icon fas fa-chevron-down text-[#2BB673]" aria-hidden="true"></i>
+                    </div>
+                    <div class="faq-answer text-slate-600 text-sm" role="region">
+                        <p>We offer a 30-day money-back guarantee. If you're not satisfied with the first module, we'll refund your full payment with no questions asked.</p>
+                    </div>
+                </div>
+                <div class="faq-item glass-card p-8 bg-white/60" role="listitem" aria-expanded="false" tabindex="0">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-bold text-slate-800 text-base">Will this help me get a job?</h3>
+                        <i class="faq-icon fas fa-chevron-down text-[#2BB673]" aria-hidden="true"></i>
+                    </div>
+                    <div class="faq-answer text-slate-600 text-sm" role="region">
+                        <p>Absolutely! 87% of our graduates land data analytics roles within 6 months. We provide career support, resume review, interview prep, and job placement assistance throughout the program.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. MODULES -->
+        <section class="max-w-5xl mx-auto px-6 py-24 section-gradient-1" id="modules" aria-labelledby="modules-heading">
+            <div class="text-center mb-16 space-y-4">
+                <h2 id="modules-heading" class="text-3xl sm:text-4xl font-black text-slate-900">6 Comprehensive Modules</h2>
+                <p class="text-slate-600">Structured learning path designed for rapid skill development</p>
+            </div>
+            <ol class="space-y-4 list-none p-0 m-0">
+                <li class="module-row glass-card p-8 bg-white/60">
+                    <div class="flex gap-8 items-center">
+                        <span class="text-[#2BB673] font-black text-3xl opacity-40" aria-hidden="true">01</span>
+                        <div>
+                            <h3 class="font-bold text-xl text-slate-800">Foundations of Data Analytics</h3>
+                            <p class="text-slate-500 mt-1">Explore the data lifecycle, data types, and business logic fundamentals.</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="module-row glass-card p-8 bg-white/60">
+                    <div class="flex gap-8 items-center">
+                        <span class="text-[#2BB673] font-black text-3xl opacity-40" aria-hidden="true">02</span>
+                        <div>
+                            <h3 class="font-bold text-xl text-slate-800">Excel for Data Professionals</h3>
+                            <p class="text-slate-500 mt-1">Advanced data cleaning, VLOOKUP/XLOOKUP, and dashboard automation.</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="module-row glass-card p-8 bg-white/60">
+                    <div class="flex gap-8 items-center">
+                        <span class="text-[#2BB673] font-black text-3xl opacity-40" aria-hidden="true">03</span>
+                        <div>
+                            <h3 class="font-bold text-xl text-slate-800">SQL &amp; Database Management</h3>
+                            <p class="text-slate-500 mt-1">Writing complex queries, joins, and aggregating big datasets in PostgreSQL.</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="module-row glass-card p-8 bg-white/60">
+                    <div class="flex gap-8 items-center">
+                        <span class="text-[#2BB673] font-black text-3xl opacity-40" aria-hidden="true">04</span>
+                        <div>
+                            <h3 class="font-bold text-xl text-slate-800">Programming for Data with Python</h3>
+                            <p class="text-slate-500 mt-1">Mastering Pandas, NumPy, and scripting for data science workflows.</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="module-row glass-card p-8 bg-white/60">
+                    <div class="flex gap-8 items-center">
+                        <span class="text-[#2BB673] font-black text-3xl opacity-40" aria-hidden="true">05</span>
+                        <div>
+                            <h3 class="font-bold text-xl text-slate-800">Data Visualization &amp; Storytelling</h3>
+                            <p class="text-slate-500 mt-1">Advanced Tableau and Power BI techniques to translate data into impact.</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="module-row glass-card p-8 bg-white/60">
+                    <div class="flex gap-8 items-center">
+                        <span class="text-[#2BB673] font-black text-3xl opacity-40" aria-hidden="true">06</span>
+                        <div>
+                            <h3 class="font-bold text-xl text-slate-800">Professional Capstone Project</h3>
+                            <div class="flex flex-wrap items-center gap-2 mt-2">
+                                <span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[10px] font-bold rounded">LIVE PROJECT</span>
+                                <p class="text-slate-500 m-0">Apply your skills to a real-world business case with industry feedback.</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ol>
+        </section>
+
+        <!-- 11. CAREER OUTCOMES -->
+        <section id="outcomes" class="max-w-7xl mx-auto px-6 py-24 section-gradient-2" aria-labelledby="career-heading">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8">
+                    <h2 id="career-heading" class="text-3xl sm:text-4xl font-black text-slate-900">Your Career Path</h2>
+                    <ul class="space-y-6 list-none p-0 m-0">
+                        <li class="flex items-center gap-4">
+                            <div class="w-12 h-12 glass-card flex items-center justify-center text-[#2BB673] bg-white" aria-hidden="true"><i class="fas fa-briefcase"></i></div>
+                            <p class="font-bold text-slate-700 m-0">Data Analyst</p>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <div class="w-12 h-12 glass-card flex items-center justify-center text-[#2BB673] bg-white" aria-hidden="true"><i class="fas fa-chart-line"></i></div>
+                            <p class="font-bold text-slate-700 m-0">BI Analyst</p>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <div class="w-12 h-12 glass-card flex items-center justify-center text-[#2BB673] bg-white" aria-hidden="true"><i class="fas fa-database"></i></div>
+                            <p class="font-bold text-slate-700 m-0">Analytics Engineer</p>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <div class="w-12 h-12 glass-card flex items-center justify-center text-[#2BB673] bg-white" aria-hidden="true"><i class="fas fa-cog"></i></div>
+                            <p class="font-bold text-slate-700 m-0">Data Operations Specialist</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="glass-card p-10 bg-white/70">
+                    <h3 class="text-xl font-bold mb-8 text-slate-800">Salary Snapshot (Average GBP)</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between text-xs font-bold text-slate-500 mb-2">
+                                <span>Junior Analyst</span><span>£32,000</span>
+                            </div>
+                            <div class="salary-bar" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" aria-label="Junior Analyst salary: £32,000">
+                                <div class="salary-fill" data-width="45%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-bold text-slate-500 mb-2">
+                                <span>Senior Analyst</span><span>£65,000+</span>
+                            </div>
+                            <div class="salary-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="Senior Analyst salary: £65,000+">
+                                <div class="salary-fill" data-width="90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 12. ENROLLMENT SECTION -->
+        <section id="enroll" class="max-w-7xl mx-auto px-6 py-24 section-gradient-1" aria-labelledby="enroll-heading">
+            <div class="glass-card p-12 lg:p-24 text-center space-y-8 relative overflow-hidden bg-gradient-to-br from-emerald-50 to-sky-50 border-emerald-100 feature-box glow-effect">
+                <div class="absolute top-5 right-5 opacity-10 text-6xl" aria-hidden="true">📊</div>
+                <h2 id="enroll-heading" class="text-4xl sm:text-5xl font-black text-slate-900">Enrollment Now Open</h2>
+                <p class="text-slate-600 text-lg">Limited seats for the upcoming March cohort. Join 4,000+ successful graduates.</p>
+                <div class="divider-gradient" aria-hidden="true"></div>
+                <div class="flex flex-col items-center gap-4">
+                    <a href="#" class="btn-glass-solid px-12 py-5 rounded-2xl font-black text-xl inline-block no-underline">
+                        🚀 Enroll Now
+                    </a>
+                    <p class="text-[10px] uppercase tracking-widest text-slate-400">✨ Flexible monthly payment options available · 30-day money-back guarantee</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="max-w-7xl mx-auto px-6 py-12" aria-label="Site footer">
+        <div class="glass-card p-12 border-slate-100 bg-white/40">
+            <div class="grid md:grid-cols-4 gap-12">
+                <div class="space-y-4">
+                    <a href="/" class="flex items-center gap-3 no-underline" aria-label="ITAI.EDU - Home">
+                        <div class="w-8 h-8 bg-[#2BB673] rounded-lg flex items-center justify-center text-white" aria-hidden="true"><i class="fas fa-chart-pie text-xs"></i></div>
+                        <span class="font-extrabold text-sm tracking-tight text-slate-900">ITAI<span class="text-[#2BB673]">.EDU</span></span>
+                    </a>
+                    <p class="text-xs text-slate-500">Translucent learning for a transparent career path.</p>
+                </div>
+                <div class="space-y-3">
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-slate-400">Program</h3>
+                    <nav aria-label="Program links">
+                        <ul class="list-none p-0 m-0 space-y-2">
+                            <li><a href="#curriculum" class="text-sm text-slate-600 hover:text-[#2BB673] no-underline transition-colors">Curriculum</a></li>
+                            <li><a href="#modules" class="text-sm text-slate-600 hover:text-[#2BB673] no-underline transition-colors">Modules</a></li>
+                            <li><a href="#outcomes" class="text-sm text-slate-600 hover:text-[#2BB673] no-underline transition-colors">Outcomes</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="space-y-3">
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-slate-400">Support</h3>
+                    <nav aria-label="Support links">
+                        <ul class="list-none p-0 m-0 space-y-2">
+                            <li><a href="#faq" class="text-sm text-slate-600 hover:text-[#2BB673] no-underline transition-colors">FAQ</a></li>
+                            <li><a href="#" class="text-sm text-slate-600 hover:text-[#2BB673] no-underline transition-colors">Contact Us</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="space-y-3">
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-slate-400">Connect</h3>
+                    <div class="flex gap-4">
+                        <a href="#" aria-label="Follow us on LinkedIn" class="text-slate-400 hover:text-[#2BB673] transition-colors"><i class="fab fa-linkedin text-lg"></i></a>
+                        <a href="#" aria-label="Follow us on Twitter" class="text-slate-400 hover:text-[#2BB673] transition-colors"><i class="fab fa-twitter text-lg"></i></a>
+                        <a href="#" aria-label="Follow us on YouTube" class="text-slate-400 hover:text-[#2BB673] transition-colors"><i class="fab fa-youtube text-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 pt-12 border-t border-slate-100 text-center text-[10px] text-slate-400 uppercase tracking-[0.2em]">
+                <p>© <span id="copyright-year">2024</span> ITAI Technology Education. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- Dynamic Copyright Year ---
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
+        // --- Mobile Menu Toggle ---
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                const isOpen = mobileMenu.getAttribute('aria-hidden') === 'false';
+                mobileMenu.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
+                mobileMenuBtn.setAttribute('aria-expanded', !isOpen);
+                mobileMenuBtn.querySelector('i').className = isOpen ? 'fas fa-bars' : 'fas fa-times';
+            });
+
+            // Close mobile menu when a link is clicked
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.setAttribute('aria-hidden', 'true');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenuBtn.querySelector('i').className = 'fas fa-bars';
+                });
+            });
+        }
+
+        // --- Smooth Scroll for Anchor Links ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    const target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        // Set focus for accessibility
+                        target.setAttribute('tabindex', '-1');
+                        target.focus({ preventScroll: true });
+                    }
+                }
+            });
+        });
+
+        // --- Intersection Observer for Animations ---
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (!reducedMotion) {
+            const animObserver = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            animObserver.unobserve(entry.target);
+                        }
+                    });
+                },
+                { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+            );
+
+            document.querySelectorAll('.animate-on-scroll').forEach(el => animObserver.observe(el));
+        }
+
+        // --- Salary Bar Animation ---
+        const salaryObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const targetWidth = entry.target.dataset.width;
+                        if (targetWidth) {
+                            entry.target.style.width = targetWidth;
+                        }
+                        salaryObserver.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.1, rootMargin: '0px 0px -100px 0px' }
+        );
+
+        document.querySelectorAll('.salary-fill').forEach(bar => salaryObserver.observe(bar));
+
+        // --- Active Navigation Link Highlighting ---
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section[id]');
+
+        let scrollTimeout;
+        const highlightNavLink = () => {
+            if (scrollTimeout) return;
+            scrollTimeout = requestAnimationFrame(() => {
+                let current = '';
+                const scrollY = window.scrollY;
+
+                sections.forEach(section => {
+                    if (scrollY >= section.offsetTop - 200) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    const isCurrent = link.getAttribute('href') === `#${current}`;
+                    link.setAttribute('aria-current', isCurrent ? 'true' : 'false');
+                });
+
+                scrollTimeout = null;
+            });
+        };
+
+        window.addEventListener('scroll', highlightNavLink, { passive: true });
+        highlightNavLink();
+
+        // --- FAQ Toggle with Keyboard Support ---
+        document.querySelectorAll('.faq-item').forEach(item => {
+            const toggle = () => {
+                const isOpen = item.getAttribute('aria-expanded') === 'true';
+                // Close all other FAQs
+                document.querySelectorAll('.faq-item').forEach(other => {
+                    if (other !== item) {
+                        other.setAttribute('aria-expanded', 'false');
+                    }
+                });
+                item.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+            };
+
+            item.addEventListener('click', toggle);
+            item.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggle();
+                }
+            });
+        });
+
+        // --- Close mobile menu on Escape ---
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileMenu && mobileMenu.getAttribute('aria-hidden') === 'false') {
+                mobileMenu.setAttribute('aria-hidden', 'true');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                mobileMenuBtn.querySelector('i').className = 'fas fa-bars';
+                mobileMenuBtn.focus();
+            }
+        });
+    </script>
+</body>
+</html>
